@@ -1,0 +1,18 @@
+package com.workout.befit.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+
+
+@RestController
+@RequestMapping("/public")
+public class ExerciseController {
+    @GetMapping("/path")
+    public ResponseEntity<String> exercisename() {
+        return new ResponseEntity<>("Hello",HttpStatus.ACCEPTED);
+    }
+    
+}
