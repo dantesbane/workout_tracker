@@ -14,6 +14,7 @@ import lombok.ToString;
 @ToString
 public class Exercise {
     @Id
+    
     private String id;
 
     private String exercisename;
