@@ -23,7 +23,7 @@ public class WorkoutRoutine {
     private String id;
 
     private String routinename;
-    private List<WorkSession> workSessions;
+    private List<String> worksessionsid;
     
     //i also want to track the weight of used and the number of reps
     //i think i should also track the number of sets for each exercise

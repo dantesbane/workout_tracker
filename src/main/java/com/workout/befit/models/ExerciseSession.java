@@ -16,7 +16,7 @@ import lombok.ToString;
 @ToString
 @Data
 //Basically exercises with set details
-public class WorkSession {
+public class ExerciseSession {
     @Id
     private String id;
     private Exercise exercise;

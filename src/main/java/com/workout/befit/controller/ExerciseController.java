@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 @RestController
-@RequestMapping("/public")
 public class ExerciseController {
-    @GetMapping("/path")
+    @GetMapping("/")
     public ResponseEntity<String> exercisename() {
         return new ResponseEntity<>("Hello",HttpStatus.ACCEPTED);
     }
     
+
 }
