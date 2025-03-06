@@ -3,7 +3,6 @@ package com.workout.befit.repository;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.workout.befit.models.User;
-import java.util.List;
 import java.util.Optional;
 
 

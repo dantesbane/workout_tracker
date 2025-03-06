@@ -12,7 +12,7 @@ COPY .mvn .mvn/
 COPY src ./src/
 
 # Expose the application port
-EXPOSE 8080
+EXPOSE 80
 
 # Install Maven and run the application in development mode
 RUN apt-get update && apt-get install -y maven
