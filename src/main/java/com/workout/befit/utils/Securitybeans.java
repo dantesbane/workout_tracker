@@ -10,14 +10,14 @@ import com.workout.befit.services.CustomUserDetails;
 
 @Component
 public class Securitybeans {
-    
-    @Bean
-    public UserDetailsService userDetailsService() {
-        return new CustomUserDetails();               // Use MongoUserDetailsService
-    }
-
     @Bean
     public PasswordEncoder passwordEncoder() {
     return new BCryptPasswordEncoder();}
+
+    @Bean
+    public UserDetailsService customuserdetailsservice(){
+        return new CustomUserDetails();
+    }
+
 
 }

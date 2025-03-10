@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import com.workout.befit.models.User;
 import com.workout.befit.repository.UserRepo;
 
-@Service
+@Service("customuserdetails")
 @Primary
 public class CustomUserDetails implements UserDetailsService {
 
@@ -24,6 +24,7 @@ public class CustomUserDetails implements UserDetailsService {
     PasswordEncoder bcrypt;
 
 
+    @SuppressWarnings("null")
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {   
         Optional<User> optionaluser=userrepo.findByUsername(username);

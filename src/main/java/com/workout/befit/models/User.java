@@ -27,6 +27,8 @@ public class User implements UserDetails {
         this.username=username2;
         this.password=password2;
         this.workoutroutinesid=new ArrayList<String>();
+        this.roles=new ArrayList<String>();
+        
     }
 
     @Id
@@ -37,9 +39,12 @@ public class User implements UserDetails {
     
     @NonNull
     private String password;
+
+
     //need to allow each user to have multiple workout routines
-    
     private List<String> workoutroutinesid;
+
+    private List<String> roles;
     
     @Override
     public boolean isAccountNonExpired() {
@@ -63,7 +68,7 @@ public class User implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         // Give all users ROLE_USER by default
-        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        return List.of(new SimpleGrantedAuthority("ROLE_User"));
     }
     
 }
