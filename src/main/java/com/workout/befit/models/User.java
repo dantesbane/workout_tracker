@@ -15,20 +15,18 @@ import com.mongodb.lang.NonNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Document(collection = "users")
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Data
 public class User implements UserDetails {
     public User(String username2, String password2) {
         this.username=username2;
         this.password=password2;
-        this.workoutroutinesid=new ArrayList<String>();
-        this.roles=new ArrayList<String>();
-        
+        this.workoutroutinesid=new ArrayList<>();
+        this.roles=new ArrayList<>();
+
     }
 
     @Id

@@ -27,6 +27,8 @@ public class SecurityConfig {
     @Autowired
     PasswordEncoder passencoder;
 
+    @Autowired
+    AuthenticationProvider authprovider;
     
 
     @Bean
@@ -40,13 +42,7 @@ public class SecurityConfig {
         return http.build();
     }
 
-    @Bean
-    public AuthenticationProvider authprovider(){
-        DaoAuthenticationProvider provider=new DaoAuthenticationProvider();
-        provider.setPasswordEncoder(passencoder);
-        provider.setUserDetailsService(customuserdetails);
-        return provider;
-    }
+    
  
 
 }

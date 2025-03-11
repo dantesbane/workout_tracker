@@ -1,11 +1,11 @@
 package com.workout.befit.services;
 
-import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
-import org.springframework.security.core.userdetails.User.UserBuilder;
+import java.util.function.Supplier;
+
+
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -14,26 +14,23 @@ import org.springframework.stereotype.Service;
 import com.workout.befit.models.User;
 import com.workout.befit.repository.UserRepo;
 
+
+
 @Service("customuserdetails")
-@Primary
 public class CustomUserDetails implements UserDetailsService {
+    @Autowired
+    private UserRepo userrepo;
 
     @Autowired
-    UserRepo userrepo;
-    @Autowired
-    PasswordEncoder bcrypt;
-
+    private PasswordEncoder bcrypt;
 
     @SuppressWarnings("null")
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {   
-        Optional<User> optionaluser=userrepo.findByUsername(username);
-        User user=optionaluser.orElseThrow();
-        UserBuilder builder = null;
-        builder.username(user.getUsername());
-        builder.password(bcrypt.encode(user.getPassword()));
-        builder.authorities(user.getAuthorities());
-        return builder.build();
+        Supplier<UsernameNotFoundException> s= () -> new UsernameNotFoundException("Error find the user");
+        
+        User user=userrepo.findByUsername(username).orElseThrow(s);
+        return user;
     }
 
     

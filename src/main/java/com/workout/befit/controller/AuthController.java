@@ -40,6 +40,14 @@ public class AuthController {
         return new ResponseEntity<String>("The request is being allowed", HttpStatus.OK);
     }
 
+    @GetMapping("/checklogin")
+    public ResponseEntity<List<String>> checklogiinandgetuserlist(){
+        
+        ResponseEntity<List<String>> response=authservices.getListofUsers();
+        return response;
+
+    }
+
 /*     @GetMapping("/checkallusers")
     public ResponseEntity<String> getallusers(){
         
